@@ -40,7 +40,7 @@ Outcome of the five models is combined using a soft-voting ensemble approach. Pl
 The code has been tested on a IBM AC922 equipped with 512GB and a NVIDIA A100. 
 The IBM Watson Machine Learning Community Edition (WML-CE 1.7.0) was used for deployment.
 
-## Reference
+## References
 [1] He, X.; Wang, S.; Shi, S.; Chu, X.; Tang, J.; Liu, X.; Yan, C.; Zhang, J.; Ding, G. Benchmarking deep learning models and automated
 model design for covid-19 detection with chest ct scans. medRxiv 2020.
 [2] Zhang, K.; Liu, X.; Shen, J.; Li, Z.; Sang, Y.; et al, X.W. Clinically applicable AI system for accurate diagnosis, quantitative
