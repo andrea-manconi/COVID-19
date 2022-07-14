@@ -1,0 +1,89 @@
+########################
+##   Andrea Manconi   
+##   Tool name:
+##   rel:
+##   licence:
+##   date:
+########################
+
+"""
+The following InceptionV1 models are build on the implementation released as part of the paper:
+Deep COVID DeteCT: an International Experience on COVID-19 Lung Detection and Prognosis using Chest CT 
+Inception-v1 Inflated 3D ConvNet (definition adapted from Kinetics).
+"""
+
+from tensorflow.keras.models import Model
+from tensorflow.keras import layers
+from tensorflow.keras.layers import Activation
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input
+from tensorflow.keras.layers import BatchNormalization
+from tensorflow.keras.layers import Conv3D
+from tensorflow.keras.layers import MaxPooling3D
+from tensorflow.keras.layers import AveragePooling3D
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.layers import Reshape
+from tensorflow.keras.layers import Lambda
+from tensorflow.keras.layers import GlobalAveragePooling3D
+from tensorflow.keras.utils import get_source_inputs
+from tensorflow.python.keras.utils import layer_utils
+from tensorflow.keras import backend as K
+
+def conv3d_bn(x,
+              filters,
+              num_frames,
+              num_row,
+              num_col,
+              padding='same',
+              strides=(1, 1, 1),
+              use_bias = False,
+              use_activation_fn = True,
+              use_bn = True,
+              name=None):
+    """Utility function to apply conv3d + BN.
+
+    # Arguments
+        x: input tensor.
+        filters: filters in `Conv3D`.
+        num_frames: frames (time depth) of the convolution kernel.
+        num_row: height of the convolution kernel.
+        num_col: width of the convolution kernel.
+        padding: padding mode in `Conv3D`.
+        strides: strides in `Conv3D`.
+        use_bias: use bias or not
+        use_activation_fn: use an activation function or not.
+        use_bn: use batch normalization or not.
+        name: name of the ops; will become `name + '_conv'`
+            for the convolution and `name + '_bn'` for the
+            batch norm layer.
+
+    # Returns
+        Output tensor after applying `Conv3D` and `BatchNormalization`.
+    """
+    if name is not None:
+        bn_name = name + '_bn'
+        conv_name = name + '_conv'
+    else:
+        bn_name = None
+        conv_name = None
+
+    x = Conv3D(
+        filters, (num_frames, num_row, num_col),
+        strides=strides,
+        padding=padding,
+        use_bias=use_bias,
+        name=conv_name)(x)
+
+    if use_bn:
+        if K.image_data_format() == 'channels_first':
+            bn_axis = 1
+        else:
+            bn_axis = 4
+        x = BatchNormalization(axis=bn_axis, scale=False, name=bn_name)(x)
+
+    if use_activation_fn:
+        x = Activation('relu', name=name)(x)
+
+    return x
+
+
