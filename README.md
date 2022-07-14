@@ -37,7 +37,7 @@ Outcome of the five models is combined using a soft-voting ensemble approach. Pl
 
 
 ## Hardware and Software requirements
-The code has been tested on a IBM AC922 equipped with 512GB and a NVIDIA A100. 
+The code has been tested on a IBM Power System AC922 equipped with 512GB of RAM and a GPU NVIDIA V100 equipped with 16GB of memory.
 The IBM Watson Machine Learning Community Edition (WML-CE 1.7.0) was used for deployment.
 
 ## References
