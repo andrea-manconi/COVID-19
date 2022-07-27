@@ -33,11 +33,6 @@ models are built setting the dropout to 0.0 and then ranging it fro, 0.3 to 0.6.
 ## Soft-Voting Ensemble Model
 Outcome of the five models is combined using a soft-voting ensemble approach.
 
-# Reference
-Please, cite
-Manconi, A.; Armano, G.; Gnocchi, M.; Milanesi, L. A Soft-Voting Ensemble Classifier for Detecting Patients Affected by COVID-19. Appl. Sci. 2022, 12, 7554. https://doi.org/10.3390/app12157554
-
-
 ## How to build the models
 - User should use the Jupyter Notebook labeled "pre-processing" to pre-process the dataset. The notebook implements the tasks aimed at i) converting the slices in .png images to NIFTI CT scans; ii) cropping and scaling all slice of a scan; iii) uniforming the CT scans to a given depth size; iv) splitting the dataset into a training, validation and test set. To implement the adopted 5-fold cross-validation strategy a training/validation/test set representative of each fold will be built and saved to disk. 
 
@@ -46,6 +41,9 @@ Manconi, A.; Armano, G.; Gnocchi, M.; Milanesi, L. A Soft-Voting Ensemble Classi
 ## Hardware and Software requirements
 The code has been tested on a IBM Power System AC922 equipped with 512GB of RAM and a GPU NVIDIA V100 equipped with 16GB of memory.
 The IBM Watson Machine Learning Community Edition (WML-CE 1.7.0) was used for deployment.
+
+## Cite this work
+Manconi, A.; Armano, G.; Gnocchi, M.; Milanesi, L. A Soft-Voting Ensemble Classifier for Detecting Patients Affected by COVID-19. Appl. Sci. 2022, 12, 7554. https://doi.org/10.3390/app12157554
 
 ## References
 [1] He, X.; Wang, S.; Shi, S.; Chu, X.; Tang, J.; Liu, X.; Yan, C.; Zhang, J.; Ding, G. Benchmarking deep learning models and automated
