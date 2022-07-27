@@ -33,6 +33,10 @@ models are built setting the dropout to 0.0 and then ranging it fro, 0.3 to 0.6.
 ## Soft-Voting Ensemble Model
 Outcome of the five models is combined using a soft-voting ensemble approach.
 
+# Reference
+Please, cite
+Manconi, A.; Armano, G.; Gnocchi, M.; Milanesi, L. A Soft-Voting Ensemble Classifier for Detecting Patients Affected by COVID-19. Appl. Sci. 2022, 12, 7554. https://doi.org/10.3390/app12157554
+
 
 ## How to build the models
 - User should use the Jupyter Notebook labeled "pre-processing" to pre-process the dataset. The notebook implements the tasks aimed at i) converting the slices in .png images to NIFTI CT scans; ii) cropping and scaling all slice of a scan; iii) uniforming the CT scans to a given depth size; iv) splitting the dataset into a training, validation and test set. To implement the adopted 5-fold cross-validation strategy a training/validation/test set representative of each fold will be built and saved to disk. 
